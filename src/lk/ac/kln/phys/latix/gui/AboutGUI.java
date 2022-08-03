@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package latticestructureidentification;
+package lk.ac.kln.phys.latix.gui;
 
 /**
  *
  * @author K.L.A.C. LAKSHAN
  */
-public class About extends javax.swing.JFrame {
+public class AboutGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form About
      */
-    public About() {
+    public AboutGUI() {
         initComponents();
     }
 
@@ -26,23 +26,23 @@ public class About extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        labelLogo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textDescription = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/latticestructureidentification/ideaC{}de;.jpg"))); // NOI18N
+        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lk/ac/kln/phys/latix/res/ideaC{}de;.jpg"))); // NOI18N
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(41, 41, 61));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Lattice Structure Determination is a program written using Java.\n\nThis helps to identify the basic crystal structures; Simple Cubic, Body Centered Cubic and Face Centered Cubic.\nAlong with the structure, the lattice constant, atomic radius and the density is calculated\n\nVersion : 1.0\nJava : 1.8.0_101; Java HotSpot(TM) 64-Bit Server VM 25.101-b13\n\nAll Rights Reserved\nlakshanklac@gmail.com");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        textDescription.setEditable(false);
+        textDescription.setBackground(new java.awt.Color(41, 41, 61));
+        textDescription.setColumns(20);
+        textDescription.setForeground(new java.awt.Color(255, 255, 255));
+        textDescription.setLineWrap(true);
+        textDescription.setRows(5);
+        textDescription.setText("Lattice Structure Determination is a program written using Java.\n\nThis helps to identify the basic crystal structures; Simple Cubic, Body Centered Cubic and Face Centered Cubic.\nAlong with the structure, the lattice constant, atomic radius and the density is calculated\n\nVersion : 1.0\nJava : 1.8.0_101; Java HotSpot(TM) 64-Bit Server VM 25.101-b13\n\nAll Rights Reserved\nlakshanklac@gmail.com");
+        textDescription.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(textDescription);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,7 +52,7 @@ public class About extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labelLogo)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -61,9 +61,9 @@ public class About extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(labelLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -88,27 +88,28 @@ public class About extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AboutGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AboutGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AboutGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AboutGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new About().setVisible(true);
+                new AboutGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel labelLogo;
+    private javax.swing.JTextArea textDescription;
     // End of variables declaration//GEN-END:variables
 }

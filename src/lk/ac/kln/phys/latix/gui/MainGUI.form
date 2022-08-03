@@ -4,13 +4,12 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="menuAbout">
           <Properties>
             <Property name="text" type="java.lang.String" value="About"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu3ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuAboutMouseClicked"/>
           </Events>
         </Menu>
       </SubComponents>
@@ -116,16 +115,16 @@
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField2" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Component id="textMolarMass" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Component id="textWaveLength" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jLabel8" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Component id="labelDensity" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" pref="201" max="32767" attributes="0"/>
+                                  <Component id="labelLatticeStructure" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelLatticeConstant" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelAtomicRadius" alignment="0" pref="201" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jLabel10" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Component id="labelDivisor" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -140,9 +139,9 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="156" max="-2" attributes="0"/>
+                      <Component id="buttonCalculate" min="-2" pref="156" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="156" max="-2" attributes="0"/>
+                      <Component id="buttonClear" min="-2" pref="156" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -155,28 +154,28 @@
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="textWaveLength" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="textMolarMass" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="labelLatticeStructure" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="labelLatticeConstant" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="labelAtomicRadius" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -189,18 +188,18 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="labelDensity" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="labelDivisor" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton5" alignment="3" pref="49" max="32767" attributes="0"/>
-                          <Component id="jButton6" alignment="3" pref="49" max="32767" attributes="0"/>
+                          <Component id="buttonCalculate" alignment="3" pref="49" max="32767" attributes="0"/>
+                          <Component id="buttonClear" alignment="3" pref="49" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
@@ -208,7 +207,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="labelDivisor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -224,7 +223,7 @@
                 <Property name="text" type="java.lang.String" value="Lattice Structure"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="labelLatticeStructure">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -264,7 +263,7 @@
                 <Property name="text" type="java.lang.String" value="Density"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="labelDensity">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -272,7 +271,7 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="textMolarMass">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -287,7 +286,7 @@
                 <Property name="text" type="java.lang.String" value="Wavelength"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="buttonCalculate">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -295,7 +294,7 @@
                 <Property name="text" type="java.lang.String" value="CALCULATE"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCalculateActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -306,7 +305,7 @@
                 <Property name="text" type="java.lang.String" value="Lattice Constant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="labelLatticeConstant">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -314,7 +313,7 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="textWaveLength">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -329,7 +328,7 @@
                 <Property name="text" type="java.lang.String" value="Atomic Radius"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="labelAtomicRadius">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -369,7 +368,7 @@
                 <Property name="text" type="java.lang.String" value="g/cm^3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="buttonClear">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -377,7 +376,7 @@
                 <Property name="text" type="java.lang.String" value="CLEAR"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonClearActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -397,14 +396,14 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField10" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <Component id="textTwoTheta7" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textTwoTheta8" min="-2" pref="143" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -422,21 +421,21 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta1" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField4" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta2" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField5" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta3" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta4" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField7" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta5" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField8" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta6" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField9" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta7" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField10" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="textTwoTheta8" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -451,59 +450,56 @@
                 <Property name="text" type="java.lang.String" value="Angle (2&#x3b8;)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="textTwoTheta1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="textTwoTheta2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="textTwoTheta3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="textTwoTheta4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="textTwoTheta5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="textTwoTheta6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="textTwoTheta7">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="textTwoTheta8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>

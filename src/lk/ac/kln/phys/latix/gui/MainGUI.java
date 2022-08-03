@@ -2,21 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package latticestructureidentification;
+package lk.ac.kln.phys.latix.gui;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.swing.JOptionPane;
+import lk.ac.kln.phys.latix.physics.experiments.diffraction.DiffractionExperiment;
+import lk.ac.kln.phys.latix.physics.experiments.diffraction.DiffractionSolution;
+import lk.ac.kln.phys.latix.physics.unitcells.PrimitiveUnitCell;
+import lk.ac.kln.phys.latix.validators.FormValidator;
+import lk.ac.kln.phys.latix.validators.InputTypeValidator;
 
 /**
  *
  * @author K.L.A.C. LAKSHAN
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class MainGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public MainGUI() {
         initComponents();
     }
 
@@ -31,40 +40,40 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        labelDivisor = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        labelLatticeStructure = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        labelDensity = new javax.swing.JLabel();
+        textMolarMass = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        buttonCalculate = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        labelLatticeConstant = new javax.swing.JLabel();
+        textWaveLength = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelAtomicRadius = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        buttonClear = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        textTwoTheta1 = new javax.swing.JTextField();
+        textTwoTheta2 = new javax.swing.JTextField();
+        textTwoTheta3 = new javax.swing.JTextField();
+        textTwoTheta4 = new javax.swing.JTextField();
+        textTwoTheta5 = new javax.swing.JTextField();
+        textTwoTheta6 = new javax.swing.JTextField();
+        textTwoTheta7 = new javax.swing.JTextField();
+        textTwoTheta8 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        menuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Condense Matter Physics");
@@ -74,14 +83,14 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setText("0");
+        labelDivisor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelDivisor.setText("0");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Lattice Structure");
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("0");
+        labelLatticeStructure.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelLatticeStructure.setText("0");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setText("g/mol");
@@ -95,35 +104,35 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Density");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("0");
+        labelDensity.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelDensity.setText("0");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textMolarMass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Wavelength");
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setText("CALCULATE");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonCalculate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonCalculate.setText("CALCULATE");
+        buttonCalculate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonCalculateActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Lattice Constant");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("0");
+        labelLatticeConstant.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelLatticeConstant.setText("0");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textWaveLength.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Atomic Radius");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("0");
+        labelAtomicRadius.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelAtomicRadius.setText("0");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Molar Mass");
@@ -137,11 +146,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("g/cm^3");
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton6.setText("CLEAR");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonClear.setText("CLEAR");
+        buttonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                buttonClearActionPerformed(evt);
             }
         });
 
@@ -161,15 +170,15 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMolarMass, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textWaveLength, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDensity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
-                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(labelLatticeStructure, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelLatticeConstant, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelAtomicRadius, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                        .addComponent(labelDivisor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
@@ -180,9 +189,9 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80))
         );
         jPanel2Layout.setVerticalGroup(
@@ -193,24 +202,24 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textWaveLength, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textMolarMass, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel14))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLatticeStructure, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLatticeConstant, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel16))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAtomicRadius, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel13)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -219,16 +228,16 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDensity, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDivisor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                    .addComponent(buttonCalculate, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
 
@@ -237,26 +246,21 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("Angle (2θ)");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
+        textTwoTheta1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textTwoTheta8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -267,14 +271,14 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textTwoTheta7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTwoTheta8, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jLabel17)))
@@ -286,21 +290,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel17)
                 .addGap(27, 27, 27)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTwoTheta8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -335,18 +339,13 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        jMenu3.setText("About");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuAbout.setText("About");
+        menuAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                menuAboutMouseClicked(evt);
             }
         });
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuAbout);
 
         setJMenuBar(jMenuBar1);
 
@@ -365,109 +364,92 @@ public class NewJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCalculateActionPerformed
+        List<String> strTwoThetas = Arrays.asList(
+                textTwoTheta1.getText(),
+                textTwoTheta2.getText(),
+                textTwoTheta3.getText(),
+                textTwoTheta4.getText(),
+                textTwoTheta5.getText(),
+                textTwoTheta6.getText(),
+                textTwoTheta7.getText(),
+                textTwoTheta8.getText()
+        );
         
-        try{
+        List<String> strOtherParams = Arrays.asList(
+                textWaveLength.getText(),
+                textMolarMass.getText()
+        );
+        
+        List<String> strEssentialData = Stream.concat(strTwoThetas.subList(0, 3).stream(), strOtherParams.stream()).collect(Collectors.toList());
+        FormValidator formSufficientValidator = new FormValidator(strEssentialData);
+        
+        if (formSufficientValidator.isAllInputsNonEmpty()) {
+            List<String> strNonEmptyTwoThetas = new ArrayList<>();
+            strNonEmptyTwoThetas.add(strTwoThetas.get(0));
+            strNonEmptyTwoThetas.add(strTwoThetas.get(1));
+            strNonEmptyTwoThetas.add(strTwoThetas.get(2));
             
-        //check whether the first few angle textfields and wavelength are empty 
-        if(jTextField3.getText().isEmpty()==true||jTextField4.getText().isEmpty()==true||jTextField4.getText().isEmpty()==true||jTextField1.getText().isEmpty()==true)
-        {
-             JOptionPane.showMessageDialog(null,"Please Enter the Angles and Wavelength to Proceed"); 
-        }
-        
-        //get the inputs from Textfields
-        String[] getin={jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText()};
-        
-        String[] fillin=new String[8];
-        float[] input=new float[8];
-        for(int i=0;i<8;i++)
-        {
-            if(getin[i].isEmpty()==true)
-            {
-                fillin[i]="0";
-                input[i]=Float.parseFloat(fillin[i]);
+            for (String strTwoTheta : strTwoThetas.subList(3, strTwoThetas.size())) {
+                if (!strTwoTheta.isEmpty()) {
+                    strNonEmptyTwoThetas.add(strTwoTheta);
+                }
             }
-            else
-            {
-                fillin[i]=getin[i];
-                input[i]=Float.parseFloat(fillin[i]);
-            }
-        }
-        
-        //save wavelength
-        float lambda=Float.parseFloat(jTextField1.getText());
-        
-        latticemath lm=new latticemath();
-        float[] in=lm.sinsqr(input);
-        int[] jsc=lm.calsc(in);
-        int[] jbcc=lm.calbcc(in);
-        int[] jfcc=lm.calfcc(in);
-        int jcheck=lm.check(jsc, jbcc, jfcc);
-        jLabel12.setText(Arrays.toString(in));
-        float a=lm.latticeconst(jcheck, in, lambda);
-
-        //print the lattice structure
-        jLabel12.setText(latticemath.latticestr(jcheck));
-        
-        //calculating lattice constant
-        jLabel3.setText(Float.toString(lm.latticeconst(jcheck,in,lambda)));
-        
-        //calculating atomic radius
-        jLabel5.setText(Float.toString(lm.radius(jcheck, a)));        
             
-        //check whether molar mass is entered and if then it is calculated 
-        if(jTextField2.getText().isEmpty()==true)
-        {
-            jLabel8.setText("Molar Mass Required");
-        }
-        else
-        {
-            float molar=Float.parseFloat(jTextField2.getText());
-            jLabel8.setText(Float.toString(lm.density(jcheck, molar,a)));
+            List<String> strNonEmptyEssentialData = Stream.concat(strNonEmptyTwoThetas.stream(), strOtherParams.stream()).collect(Collectors.toList());
+            InputTypeValidator inputTypeNonEmptyValidator = new InputTypeValidator(strNonEmptyEssentialData);
+            
+            if (inputTypeNonEmptyValidator.isAllInputsNumbers()) {
+                List<Float> twoThetas = new ArrayList<>();
+                for (String strTwoTheta : strNonEmptyTwoThetas) {
+                    twoThetas.add(Float.parseFloat(strTwoTheta));
+                }
                 
+                float waveLength = Float.parseFloat(strOtherParams.get(0));
+                float molarMass = Float.parseFloat(strOtherParams.get(1));
+                
+                DiffractionExperiment diffractionExperiment = new DiffractionExperiment(waveLength, molarMass, twoThetas);
+                DiffractionSolution diffractionSolution = (DiffractionSolution) diffractionExperiment.getSolution();
+                
+                PrimitiveUnitCell unitCell = diffractionSolution.getUnitCell();
+                labelLatticeStructure.setText(unitCell.getType());
+                labelLatticeConstant.setText(String.valueOf(unitCell.getLatticeConstant()));
+                labelAtomicRadius.setText(String.valueOf(unitCell.getAtomicRadius()));
+                
+                labelDensity.setText(String.valueOf(diffractionSolution.getUnitCellDensity()));
+                labelDivisor.setText(String.valueOf(diffractionSolution.getDivisor()));
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Some of the values you've provided is invalid. Please check again.");
+            }
         }
-        
-        //print the number which sin values were divided
-        jLabel10.setText(Float.toString(lm.num(jcheck,in)));
+        else {
+            JOptionPane.showMessageDialog(null, "Please Enter the Angles and Wavelength to Proceed");
         }
-        catch(NumberFormatException ex)
-        {
-            JOptionPane.showMessageDialog(null,"NumberFormatException is occurred"); 
-        }
-        
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonCalculateActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
+        textWaveLength.setText("");
+        textMolarMass.setText("");
+        textTwoTheta1.setText("");
+        textTwoTheta2.setText("");
+        textTwoTheta3.setText("");
+        textTwoTheta4.setText("");
+        textTwoTheta5.setText("");
+        textTwoTheta6.setText("");
+        textTwoTheta7.setText("");
+        textTwoTheta8.setText("");
+        labelLatticeStructure.setText("");
+        labelLatticeConstant.setText("");
+        labelAtomicRadius.setText("");
+        labelDensity.setText("");
+        labelDivisor.setText("");
+    }//GEN-LAST:event_buttonClearActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jTextField8.setText("");
-        jTextField9.setText("");
-        jTextField10.setText("");
-        jLabel12.setText("");
-        jLabel3.setText("");
-        jLabel5.setText("");
-        jLabel8.setText("");
-        jLabel10.setText("");
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        About a=new About();
+    private void menuAboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAboutMouseClicked
+        AboutGUI a = new AboutGUI();
         a.setVisible(true);
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_menuAboutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -486,31 +468,30 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new MainGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton buttonCalculate;
+    private javax.swing.JButton buttonClear;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -519,27 +500,29 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel labelAtomicRadius;
+    private javax.swing.JLabel labelDensity;
+    private javax.swing.JLabel labelDivisor;
+    private javax.swing.JLabel labelLatticeConstant;
+    private javax.swing.JLabel labelLatticeStructure;
+    private javax.swing.JMenu menuAbout;
+    private javax.swing.JTextField textMolarMass;
+    private javax.swing.JTextField textTwoTheta1;
+    private javax.swing.JTextField textTwoTheta2;
+    private javax.swing.JTextField textTwoTheta3;
+    private javax.swing.JTextField textTwoTheta4;
+    private javax.swing.JTextField textTwoTheta5;
+    private javax.swing.JTextField textTwoTheta6;
+    private javax.swing.JTextField textTwoTheta7;
+    private javax.swing.JTextField textTwoTheta8;
+    private javax.swing.JTextField textWaveLength;
     // End of variables declaration//GEN-END:variables
 }
